@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <title>Capsolver</title>
+    <script type="module">
+        import { store } from "/plugins/capsolver/webui/capsolver-config-store.js";
+    </script>
+</head>
+
+<body>
+    <div x-data x-init="$store.capsolverConfig.init(config, context)" x-destroy="$store.capsolverConfig.cleanup()">
+        <template x-if="config">
+            <div class="capsolver-settings">
+                <div class="section-title">Capsolver</div>
+                <div class="section-description">
+                    Solve reCAPTCHA v2/v3 and Cloudflare Turnstile captchas on pages Agent Zero visits.
+                    Bring your own Capsolver API key from
+                    <a href="https://dashboard.capsolver.com" target="_blank" rel="noopener">dashboard.capsolver.com</a>.
+                </div>
+
+                <div class="field">
+                    <div class="field-label">
+                        <div class="field-title">API Key</div>
+                        <div class="field-description">
+                            Your Capsolver API key. Leave empty to use the CAPSOLVER_API_KEY environment variable instead.
+                        </div>
+                    </div>
+                    <div class="field-control">
+                        <input type="password" autocomplete="off" x-model="config.api_key" placeholder="CAP-..." />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="field-label">
+                        <div class="field-title">Test Connection</div>
+                        <div class="field-description">
+                            Check the key and show the current account balance. Uses the key entered above when present.
+                        </div>
+                    </div>
+                    <div class="field-control">
+                        <button class="btn btn-field" :disabled="$store.capsolverConfig.testing"
+                            @click="$store.capsolverConfig.testConnection()">
+                            <span x-show="!$store.capsolverConfig.testing">Test Connection</span>
+                            <span x-show="$store.capsolverConfig.testing">Testing...</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="field-label">
+                        <div class="field-title">Autofill Tokens</div>
+                        <div class="field-description">
+                            When enabled, solve_on_page writes the solved token back into the page automatically.
+                        </div>
+                    </div>
+                    <div class="field-control">
+                        <label class="toggle">
+                            <input type="checkbox" x-model="config.autofill" />
+                            <span class="toggler"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="field-label">
+                        <div class="field-title">Default Timeout (seconds)</div>
+                        <div class="field-description">
+                            Maximum time to wait for a captcha solution before giving up.
+                        </div>
+                    </div>
+                    <div class="field-control">
+                        <input type="number" min="5" x-model.number="config.default_timeout" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="field-label">
+                        <div class="field-title">Polling Interval (seconds)</div>
+                        <div class="field-description">
+                            Seconds between solution polling attempts.
+                        </div>
+                    </div>
+                    <div class="field-control">
+                        <input type="number" min="1" x-model.number="config.polling_interval" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <div class="field-label">
+                        <div class="field-title">Service Endpoint</div>
+                        <div class="field-description">
+                            Capsolver API endpoint. Change only for a proxy or mirror.
+                        </div>
+                    </div>
+                    <div class="field-control">
+                        <input type="text" x-model="config.service" placeholder="https://api.capsolver.com" />
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</body>
+
+</html>
