@@ -1,0 +1,6 @@
+name: capsolver
+title: Capsolver
+description: Solve captchas (reCAPTCHA v2/v3, Cloudflare Turnstile) on web pages using the Capsolver API.
+version: 0.1.0
+settings_sections:
+  - agent

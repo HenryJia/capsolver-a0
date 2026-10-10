@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+
+# Agent Zero local project state
+.a0proj/
+
+# OS / editor
+.DS_Store
+*.swp

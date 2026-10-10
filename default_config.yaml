@@ -1,0 +1,21 @@
+# Capsolver plugin defaults. User overrides are stored in the plugin config
+# (Settings > Agent > Capsolver) or via the CAPSOLVER_API_KEY environment variable.
+
+# Your Capsolver API key (https://dashboard.capsolver.com).
+# Leave empty and set CAPSOLVER_API_KEY in the environment instead if preferred.
+api_key: ""
+
+# Capsolver API endpoint. Change only for a proxy/mirror.
+service: "https://api.capsolver.com"
+
+# Per-request HTTP timeout in seconds.
+request_timeout: 30
+
+# Default maximum seconds to wait for a captcha solution.
+default_timeout: 120
+
+# Default seconds between solution polling attempts.
+polling_interval: 5
+
+# Autofill solved tokens back into the page for solve_on_page.
+autofill: true
