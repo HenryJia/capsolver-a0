@@ -6,6 +6,31 @@ Zero solve captchas while browsing the web, using the
 
 Bring your own Capsolver API key — the plugin never ships a key.
 
+## Disclaimer
+
+> **This project was created with, and largely by, an AI agent.**
+>
+> This repository was scaffolded, implemented, documented, and tested by an
+autonomous AI agent (Agent Zero) under human direction and review. The human
+owner defined the requirements, provided the reference material, and approved
+the result, but did not hand-write the code.
+>
+> **Use at your own risk.** AI-generated code can contain mistakes, omissions,
+or unsafe assumptions. It has not been security-audited or battle-tested. Review
+the code before relying on it in production, and treat the automated tests as a
+starting point rather than proof of correctness.
+>
+> **Respect the sites you visit.** Solving captchas is intended for legitimate
+automation on properties you own or are authorized to access. You are solely
+responsible for complying with each target site's terms of service, its robots
+and anti-bot policies, and all applicable laws. Do not use this plugin to abuse,
+scrape, or gain unauthorized access to services.
+>
+> **Your key, your responsibility.** You must supply your own Capsolver API key.
+Keep it secret; never commit it. API usage is billed to your Capsolver account,
+and you are responsible for all charges and for any consequences of how you use
+the service.
+
 ## What it does
 
 - **Detect** captchas on the page Agent Zero already has open.
